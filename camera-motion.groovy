@@ -2,6 +2,7 @@
  *  Camera Motion
  *
  *  Copyright 2015 Kristopher Kubicki
+ *  Modified by Shane Burkhardt for USEAST2 shard of IDE
  *
  */
 definition(
@@ -67,7 +68,7 @@ def generateURL() {
 	
 	createAccessToken()
 	
-	["https://graph.api.smartthings.com/api/smartapps/installations/${app.id}/active", "?access_token=${state.accessToken}"]
+	["https://graph-na04-useast2.api.smartthings.com/api/smartapps/installations/${app.id}/active", "?access_token=${state.accessToken}"]
 }
 
 
@@ -75,8 +76,8 @@ def viewURL() {
 	dynamicPage(name: "viewURL", title: "HTTP Motion Endpoint", install:!resetOauth, nextPage: resetOauth ? "viewURL" : null) {
 			section() {
                 generateURL() 
-				paragraph "Activate: https://graph.api.smartthings.com/api/smartapps/installations/${app.id}/active?access_token=${state.accessToken}"
-                paragraph "Deactivate: https://graph.api.smartthings.com/api/smartapps/installations/${app.id}/inactive?access_token=${state.accessToken}"
+				paragraph "Activate: https://graph-na04-useast2.api.smartthings.com/api/smartapps/installations/${app.id}/active?access_token=${state.accessToken}"
+                paragraph "Deactivate: https://graph-na04-useast2.api.smartthings.com/api/smartapps/installations/${app.id}/inactive?access_token=${state.accessToken}"
 
 			}
 	}
